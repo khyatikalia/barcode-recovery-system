@@ -1,0 +1,8 @@
+numpy
+opencv-python
+zxing-cpp
+python-stdnum
+python-barcode
+pillow
+torch
+streamlit
