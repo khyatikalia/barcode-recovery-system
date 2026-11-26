@@ -1,0 +1,357 @@
+{
+  "any_real_wrong_accept": false,
+  "wrong_read_profile_count": 28,
+  "hamming_distance_counts": {
+    "2": 2,
+    "3": 8,
+    "4": 11,
+    "5": 5,
+    "6": 1,
+    "7": 1
+  },
+  "transposition_count": 0,
+  "eval_db_guard": {
+    "random": {
+      "manifest_size": 3608,
+      "entries_per_truth": 1.38,
+      "runs": {
+        "OFF": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.60": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.80": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        }
+      }
+    },
+    "neighbour": {
+      "manifest_size": 284272,
+      "entries_per_truth": 109.0,
+      "runs": {
+        "OFF": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.60": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.80": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        }
+      }
+    },
+    "sequential": {
+      "manifest_size": 263408,
+      "entries_per_truth": 101.0,
+      "runs": {
+        "OFF": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.60": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.80": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        }
+      }
+    },
+    "dense_valid_neighbours": {
+      "manifest_size": 287098,
+      "entries_per_truth": 110.08,
+      "runs": {
+        "OFF": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.60": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.80": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 0,
+            "n": 2598,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001476,
+            "low_n_flag": false
+          }
+        }
+      }
+    },
+    "missing_10pct": {
+      "manifest_size": 3347,
+      "entries_per_truth": 1.28,
+      "runs": {
+        "OFF": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 260,
+            "n": 2598,
+            "rate": 0.100077,
+            "ci_low": 0.089121,
+            "ci_high": 0.112214,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.60": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 242,
+            "n": 2598,
+            "rate": 0.093149,
+            "ci_low": 0.082565,
+            "ci_high": 0.104933,
+            "low_n_flag": false
+          }
+        },
+        "ON@0.80": {
+          "wrong_accepts": {
+            "k": 0,
+            "n": 2608,
+            "rate": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.001471,
+            "low_n_flag": false
+          },
+          "correct_blocked_by_db": {
+            "k": 209,
+            "n": 2598,
+            "rate": 0.080446,
+            "ci_low": 0.070597,
+            "ci_high": 0.091535,
+            "low_n_flag": false
+          }
+        }
+      }
+    }
+  },
+  "synthetic_error_injection": {
+    "random": {
+      "k": 0,
+      "n": 5216,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.000736,
+      "low_n_flag": false
+    },
+    "neighbour": {
+      "k": 0,
+      "n": 5216,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.000736,
+      "low_n_flag": false
+    },
+    "sequential": {
+      "k": 2,
+      "n": 5216,
+      "rate": 0.000383,
+      "ci_low": 0.000105,
+      "ci_high": 0.001397,
+      "low_n_flag": false
+    },
+    "dense_valid_neighbours": {
+      "k": 4,
+      "n": 5216,
+      "rate": 0.000767,
+      "ci_low": 0.000298,
+      "ci_high": 0.00197,
+      "low_n_flag": false
+    },
+    "missing_10pct": {
+      "k": 0,
+      "n": 5216,
+      "rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.000736,
+      "low_n_flag": false
+    }
+  }
+}

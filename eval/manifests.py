@@ -100,10 +100,55 @@ def write_manifest_db(db_path: Path, awb_pairs: list, mode: str, seed: int) -> N
         conn.close()
 
 
+def generate_sequential_awbs(true_awbs: list, excluded: set, window: int = 50) -> list:
+    """For each true AWB, include a +/- window of consecutive 12-digit payloads with valid check digits."""
+    rows = []
+    seen = set()
+    for truth in true_awbs:
+        validate_awb(truth)
+        base12 = int(truth[:12])
+        for delta in range(-window, window + 1):
+            p12_int = (base12 + delta) % 10**12
+            p12 = f"{p12_int:012d}"
+            cand = p12 + ean.calc_check_digit(p12)
+            if cand not in seen and cand not in excluded:
+                seen.add(cand)
+                rows.append((cand, truth))
+    return rows
+
+
+def generate_dense_valid_neighbours(true_awbs: list, excluded: set) -> list:
+    """All valid-check-digit Hamming-2 neighbours (1 data digit + check digit) plus check-digit-preserving adjacent transpositions."""
+    rows = []
+    seen = set()
+    for truth in true_awbs:
+        validate_awb(truth)
+        # 1) Change one data digit (0..11) + recompute check digit (Hamming distance 2)
+        for pos in range(12):
+            orig_d = truth[pos]
+            for d in "0123456789":
+                if d == orig_d:
+                    continue
+                p12 = truth[:pos] + d + truth[pos + 1 : 12]
+                cand = p12 + ean.calc_check_digit(p12)
+                if cand not in seen and cand not in excluded and cand != truth:
+                    seen.add(cand)
+                    rows.append((cand, truth))
+        # 2) Adjacent transpositions in 0..10 that preserve the check digit (|a - b| == 5)
+        for i in range(11):
+            if abs(int(truth[i]) - int(truth[i + 1])) == 5:
+                p12 = truth[:i] + truth[i + 1] + truth[i] + truth[i + 2 : 12]
+                cand = p12 + ean.calc_check_digit(p12)
+                if cand != truth and cand[12] == truth[12] and cand not in seen and cand not in excluded:
+                    seen.add(cand)
+                    rows.append((cand, truth))
+    return rows
+
+
 def main():
     ap = argparse.ArgumentParser(description="Build validated EAN-13 evaluation manifests.")
-    ap.add_argument("--mode", choices=("random", "neighbour"), required=True)
-    ap.add_argument("--count", type=int, default=200, help="Count for random mode or truth count for neighbour mode")
+    ap.add_argument("--mode", choices=("random", "neighbour", "sequential", "dense_valid_neighbours"), required=True)
+    ap.add_argument("--count", type=int, default=200, help="Count for random mode or truth count for neighbour/sequential modes")
     ap.add_argument("--seed", type=int, default=DEFAULT_SEED)
     ap.add_argument("--data", default="data")
     ap.add_argument("--out", required=True, help="Output SQLite .db path")
@@ -116,9 +161,15 @@ def main():
     if args.mode == "random":
         awbs = generate_random_awbs(args.count, args.seed, excluded)
         pairs = [(a, None) for a in awbs]
-    else:
+    elif args.mode == "neighbour":
         truths = generate_random_awbs(args.count, args.seed, excluded)
         pairs = generate_neighbour_awbs(truths, excluded)
+    elif args.mode == "sequential":
+        truths = generate_random_awbs(args.count, args.seed, excluded)
+        pairs = generate_sequential_awbs(truths, excluded)
+    else:
+        truths = generate_random_awbs(args.count, args.seed, excluded)
+        pairs = generate_dense_valid_neighbours(truths, excluded)
 
     assert_no_leakage([a for a, _ in pairs], data_dir=args.data, excluded=excluded)
     out_path = Path(args.out)

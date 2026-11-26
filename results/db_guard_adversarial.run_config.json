@@ -1,0 +1,12 @@
+{
+  "seed": 54321,
+  "args": {
+    "in_csv": "results/direct_path_guard_v2.csv",
+    "data": "data",
+    "seed": 54321,
+    "out_csv": "results/db_guard_adversarial.csv"
+  },
+  "git_commit": "6e47cff42c80b036d6a69d5c36f3674a420549a7",
+  "eval_truths": 2608,
+  "all_truths_synthetic": 5216
+}
