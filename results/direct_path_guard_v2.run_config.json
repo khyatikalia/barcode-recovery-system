@@ -1,0 +1,14 @@
+{
+  "seed": 98765,
+  "args": {
+    "seed": 98765,
+    "target_wrong": 100,
+    "max_barcodes": 20000,
+    "data": "data",
+    "checkpoint": "models/unet.pt",
+    "out": "results/direct_path_guard_v2.csv"
+  },
+  "git_commit": "3144d1bc6416bec2b45c8dc732c0e2d076e8de69",
+  "checkpoint_sha256": "7acacce74c64f4c1bad62a9b4307023eda756e7fad0534a171adcd6151226780",
+  "total_barcodes_processed": 20000
+}
