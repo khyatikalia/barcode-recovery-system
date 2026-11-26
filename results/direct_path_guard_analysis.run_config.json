@@ -1,0 +1,15 @@
+{
+  "seed": 31415,
+  "args": {
+    "count": 1000,
+    "seed": 31415,
+    "data": "data",
+    "checkpoint": "models/unet.pt",
+    "out": "results/direct_path_guard_analysis.csv"
+  },
+  "git_commit": "6ba0276a709a1d0e15c42d8b2b1c7517d49d63e1",
+  "checkpoint_sha256": "7acacce74c64f4c1bad62a9b4307023eda756e7fad0534a171adcd6151226780",
+  "checkpoint_min_consistency": 0.6,
+  "total_barcodes": 1000,
+  "direct_or_enhanced_reads": 241
+}
