@@ -1,0 +1,547 @@
+{
+  "provenance": "unseeded, parsed from log",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.224,
+      "val_loss": 0.0933,
+      "val_read_rate": 0.727,
+      "val_wrong_rate": 0.006,
+      "learning_rate": 0.001,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.0717,
+      "val_loss": 0.0634,
+      "val_read_rate": 0.755,
+      "val_wrong_rate": 0.013,
+      "learning_rate": 0.00099726,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.0524,
+      "val_loss": 0.0437,
+      "val_read_rate": 0.82,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00098907,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.0425,
+      "val_loss": 0.0456,
+      "val_read_rate": 0.821,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00097553,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.0362,
+      "val_loss": 0.0365,
+      "val_read_rate": 0.847,
+      "val_wrong_rate": 0.012,
+      "learning_rate": 0.00095677,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.0313,
+      "val_loss": 0.0317,
+      "val_read_rate": 0.882,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00093301,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.0272,
+      "val_loss": 0.0302,
+      "val_read_rate": 0.884,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00090451,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.0249,
+      "val_loss": 0.0281,
+      "val_read_rate": 0.887,
+      "val_wrong_rate": 0.013,
+      "learning_rate": 0.00087157,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.0214,
+      "val_loss": 0.0301,
+      "val_read_rate": 0.869,
+      "val_wrong_rate": 0.007,
+      "learning_rate": 0.00083457,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.0187,
+      "val_loss": 0.0247,
+      "val_read_rate": 0.895,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00079389,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.0175,
+      "val_loss": 0.0283,
+      "val_read_rate": 0.898,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00075,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.0156,
+      "val_loss": 0.024,
+      "val_read_rate": 0.906,
+      "val_wrong_rate": 0.006,
+      "learning_rate": 0.00070337,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.0138,
+      "val_loss": 0.0213,
+      "val_read_rate": 0.912,
+      "val_wrong_rate": 0.014,
+      "learning_rate": 0.00065451,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.0119,
+      "val_loss": 0.0201,
+      "val_read_rate": 0.919,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00060396,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.0109,
+      "val_loss": 0.0193,
+      "val_read_rate": 0.922,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00055226,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.0095,
+      "val_loss": 0.0198,
+      "val_read_rate": 0.926,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.0005,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.0085,
+      "val_loss": 0.0184,
+      "val_read_rate": 0.927,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00044774,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.0074,
+      "val_loss": 0.0172,
+      "val_read_rate": 0.929,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00039604,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.0062,
+      "val_loss": 0.0176,
+      "val_read_rate": 0.931,
+      "val_wrong_rate": 0.013,
+      "learning_rate": 0.00034549,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.0055,
+      "val_loss": 0.016,
+      "val_read_rate": 0.933,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00029663,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.0046,
+      "val_loss": 0.0176,
+      "val_read_rate": 0.921,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00025,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.004,
+      "val_loss": 0.0153,
+      "val_read_rate": 0.935,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00020611,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.0035,
+      "val_loss": 0.0149,
+      "val_read_rate": 0.939,
+      "val_wrong_rate": 0.005,
+      "learning_rate": 0.00016543,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.0031,
+      "val_loss": 0.0146,
+      "val_read_rate": 0.932,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00012843,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.0027,
+      "val_loss": 0.0147,
+      "val_read_rate": 0.938,
+      "val_wrong_rate": 0.007,
+      "learning_rate": 9.549e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.0024,
+      "val_loss": 0.0142,
+      "val_read_rate": 0.942,
+      "val_wrong_rate": 0.006,
+      "learning_rate": 6.699e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.0022,
+      "val_loss": 0.0142,
+      "val_read_rate": 0.935,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 4.323e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.0021,
+      "val_loss": 0.0141,
+      "val_read_rate": 0.939,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 2.447e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.002,
+      "val_loss": 0.0142,
+      "val_read_rate": 0.932,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 1.093e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.002,
+      "val_loss": 0.0141,
+      "val_read_rate": 0.936,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 2.74e-06,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    }
+  ],
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.224,
+      "val_loss": 0.0933,
+      "val_read_rate": 0.727,
+      "val_wrong_rate": 0.006,
+      "learning_rate": 0.001,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.0717,
+      "val_loss": 0.0634,
+      "val_read_rate": 0.755,
+      "val_wrong_rate": 0.013,
+      "learning_rate": 0.00099726,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.0524,
+      "val_loss": 0.0437,
+      "val_read_rate": 0.82,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00098907,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.0425,
+      "val_loss": 0.0456,
+      "val_read_rate": 0.821,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00097553,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.0362,
+      "val_loss": 0.0365,
+      "val_read_rate": 0.847,
+      "val_wrong_rate": 0.012,
+      "learning_rate": 0.00095677,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.0313,
+      "val_loss": 0.0317,
+      "val_read_rate": 0.882,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00093301,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.0272,
+      "val_loss": 0.0302,
+      "val_read_rate": 0.884,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00090451,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.0249,
+      "val_loss": 0.0281,
+      "val_read_rate": 0.887,
+      "val_wrong_rate": 0.013,
+      "learning_rate": 0.00087157,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.0214,
+      "val_loss": 0.0301,
+      "val_read_rate": 0.869,
+      "val_wrong_rate": 0.007,
+      "learning_rate": 0.00083457,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.0187,
+      "val_loss": 0.0247,
+      "val_read_rate": 0.895,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00079389,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.0175,
+      "val_loss": 0.0283,
+      "val_read_rate": 0.898,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00075,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.0156,
+      "val_loss": 0.024,
+      "val_read_rate": 0.906,
+      "val_wrong_rate": 0.006,
+      "learning_rate": 0.00070337,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.0138,
+      "val_loss": 0.0213,
+      "val_read_rate": 0.912,
+      "val_wrong_rate": 0.014,
+      "learning_rate": 0.00065451,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.0119,
+      "val_loss": 0.0201,
+      "val_read_rate": 0.919,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00060396,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.0109,
+      "val_loss": 0.0193,
+      "val_read_rate": 0.922,
+      "val_wrong_rate": 0.011,
+      "learning_rate": 0.00055226,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.0095,
+      "val_loss": 0.0198,
+      "val_read_rate": 0.926,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.0005,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.0085,
+      "val_loss": 0.0184,
+      "val_read_rate": 0.927,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00044774,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.0074,
+      "val_loss": 0.0172,
+      "val_read_rate": 0.929,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00039604,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.0062,
+      "val_loss": 0.0176,
+      "val_read_rate": 0.931,
+      "val_wrong_rate": 0.013,
+      "learning_rate": 0.00034549,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.0055,
+      "val_loss": 0.016,
+      "val_read_rate": 0.933,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00029663,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.0046,
+      "val_loss": 0.0176,
+      "val_read_rate": 0.921,
+      "val_wrong_rate": 0.009,
+      "learning_rate": 0.00025,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.004,
+      "val_loss": 0.0153,
+      "val_read_rate": 0.935,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00020611,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.0035,
+      "val_loss": 0.0149,
+      "val_read_rate": 0.939,
+      "val_wrong_rate": 0.005,
+      "learning_rate": 0.00016543,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.0031,
+      "val_loss": 0.0146,
+      "val_read_rate": 0.932,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 0.00012843,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.0027,
+      "val_loss": 0.0147,
+      "val_read_rate": 0.938,
+      "val_wrong_rate": 0.007,
+      "learning_rate": 9.549e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.0024,
+      "val_loss": 0.0142,
+      "val_read_rate": 0.942,
+      "val_wrong_rate": 0.006,
+      "learning_rate": 6.699e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.0022,
+      "val_loss": 0.0142,
+      "val_read_rate": 0.935,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 4.323e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.0021,
+      "val_loss": 0.0141,
+      "val_read_rate": 0.939,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 2.447e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.002,
+      "val_loss": 0.0142,
+      "val_read_rate": 0.932,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 1.093e-05,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.002,
+      "val_loss": 0.0141,
+      "val_read_rate": 0.936,
+      "val_wrong_rate": 0.008,
+      "learning_rate": 2.74e-06,
+      "learning_rate_source": "derived from cosine schedule, not measured"
+    }
+  ]
+}
