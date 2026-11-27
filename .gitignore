@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+*.egg-info/
+.pytest_cache/
+venv/
+.venv/
+
+# macOS
+.DS_Store
+
+# Model weights
+*.pt
+*.pth
+*.onnx
+
+# Datasets (all generated/frozen dataset folders)
+data/
+data/val2/
+data/ean13_courier/
+data/test_frozen/
+
+# Logs & temporary evaluation CSVs
+*.log
+per_image*.csv
+
+# Secrets & credentials
+.env
+*.key
+credentials*
