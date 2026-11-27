@@ -1,0 +1,10 @@
+{
+  "seed": 65432,
+  "args": {
+    "data": "data",
+    "out_csv": "results/overfit_check.csv"
+  },
+  "git_commit": "0cb8eb34f3102dacbd1dc4e9cb15208cbf73cd18",
+  "checkpoint_sha256": "306f77683fe4502ba60cf452821c282e2d4075939e48c0b59f3ba99b16f356f7",
+  "threshold": 0.600761514079721
+}

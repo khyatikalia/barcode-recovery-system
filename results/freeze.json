@@ -1,0 +1,39 @@
+{
+  "checkpoint": "models/frozen/unet_v2_final.pt",
+  "sha256": "306f77683fe4502ba60cf452821c282e2d4075939e48c0b59f3ba99b16f356f7",
+  "size_bytes": 20615699,
+  "min_consistency": 0.600761514079721,
+  "stored_epoch": 30,
+  "stored_val_decode": 0.94,
+  "training_seed": 42,
+
+  "best_epoch_determination": {
+    "conclusion": "Epoch 30 holds the stored weights.",
+    "method": "train.py saves when (val_read_rate - val_wrong_rate, -val_loss) strictly improves best_key (init -1.0, -1e9). Re-running the criterion over all 30 rows of unet_v2_history.csv, epoch 30 (key=(0.9318, -0.012872)) is the final best, consistent with the checkpoint's stored epoch=30 and val_decode=0.94.",
+    "best_criterion_key": [0.9317647058823529, -0.012871581321472631]
+  },
+
+  "last_history_row": {
+    "epoch": 30,
+    "train_loss": 0.0016303589103098203,
+    "val_loss": 0.012871581321472631,
+    "val_read_rate": 0.94,
+    "val_wrong_rate": 0.00823529411764706,
+    "learning_rate": 2.7390523158633003e-06
+  },
+
+  "train_py_annotations": {
+    "val_correct_reads_and_wrong_reads": {
+      "answer": "validate() (train.py lines 54-70) iterates over the validation DataLoader (va). For every batch, the model runs forward (no ZXing direct read is attempted; the U-Net is applied to ALL validation images). decode_recovered(im) is called on the model output. 'correct reads' counts images where decode_recovered returns a value equal to the barcode stem (ground truth). 'wrong reads' counts images where decode_recovered returns a non-None value that is NOT equal to the stem. Images where decode_recovered returns None (ambiguous or unreadable reconstruction) are counted in neither bin. Consistency and DB guards are NOT applied during validation; only ZXing + check-digit implicit in decode_recovered.",
+      "images_used": "Only the validation split (va_files), i.e., 10% of training barcodes held out by barcode stem using default_rng(0). The test split (data/test/) is never touched.",
+      "zxing_direct_included": false,
+      "unet_run_on_all": true
+    },
+    "saved_best_criterion": {
+      "answer": "train.py line 232: key = (vdec - vwrong, -vloss). The model is saved when this 2-tuple strictly exceeds the previous best. This maximises (correct_rate - wrong_rate) first, then minimises val_loss as a tiebreak. The checkpoint therefore holds the weights that best balance recall against hallucination risk on the validation split."
+    },
+    "damage_on_training_images": {
+      "answer": "Fixed on disk. prepare_dataset.py writes 'data/train/damaged/<stem>_v{k}.png' once; PairDataset (train.py lines 32-39) reads these files every epoch from disk with no augmentation. The same damaged pixels are seen in the same order every epoch (order shuffled by DataLoader with the fixed torch.Generator seed)."
+    }
+  }
+}

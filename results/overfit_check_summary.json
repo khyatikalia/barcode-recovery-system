@@ -1,0 +1,91 @@
+{
+  "checkpoint": "models/frozen/unet_v2_final.pt",
+  "checkpoint_sha256": "306f77683fe4502ba60cf452821c282e2d4075939e48c0b59f3ba99b16f356f7",
+  "min_consistency_threshold": 0.600761514079721,
+  "results": [
+    {
+      "label": "(a) train-sample-1000",
+      "n_barcodes": 711,
+      "unet_decode_rate": {
+        "k": 710,
+        "n": 711,
+        "rate": 0.998594,
+        "ci_low": 0.992076,
+        "ci_high": 0.999752,
+        "flag": false
+      },
+      "wrong_rate": {
+        "k": 0,
+        "n": 711,
+        "rate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.005374,
+        "flag": false
+      },
+      "acceptance_rate": {
+        "k": 327,
+        "n": 711,
+        "rate": 0.459916,
+        "ci_low": 0.423594,
+        "ci_high": 0.496668,
+        "flag": false
+      }
+    },
+    {
+      "label": "(b) val-split",
+      "n_barcodes": 327,
+      "unet_decode_rate": {
+        "k": 304,
+        "n": 327,
+        "rate": 0.929664,
+        "ci_low": 0.896672,
+        "ci_high": 0.952677,
+        "flag": false
+      },
+      "wrong_rate": {
+        "k": 3,
+        "n": 327,
+        "rate": 0.009174,
+        "ci_low": 0.003125,
+        "ci_high": 0.026622,
+        "flag": false
+      },
+      "acceptance_rate": {
+        "k": 153,
+        "n": 327,
+        "rate": 0.46789,
+        "ci_low": 0.414494,
+        "ci_high": 0.522031,
+        "flag": false
+      }
+    },
+    {
+      "label": "(c) val2-fresh-2000",
+      "n_barcodes": 1459,
+      "unet_decode_rate": {
+        "k": 1348,
+        "n": 1459,
+        "rate": 0.92392,
+        "ci_low": 0.909175,
+        "ci_high": 0.936439,
+        "flag": false
+      },
+      "wrong_rate": {
+        "k": 16,
+        "n": 1459,
+        "rate": 0.010966,
+        "ci_low": 0.006761,
+        "ci_high": 0.01774,
+        "flag": false
+      },
+      "acceptance_rate": {
+        "k": 675,
+        "n": 1459,
+        "rate": 0.462646,
+        "ci_low": 0.437192,
+        "ci_high": 0.488295,
+        "flag": false
+      }
+    }
+  ]
+}

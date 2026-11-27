@@ -1,0 +1,4 @@
+set_label,n_barcodes,unet_decode_k,unet_decode_n,unet_decode_rate,unet_decode_ci_low,unet_decode_ci_high,unet_decode_flag,wrong_k,wrong_n,wrong_rate,wrong_ci_low,wrong_ci_high,wrong_flag,accept_k,accept_n,accept_rate,accept_ci_low,accept_ci_high,accept_flag
+(a) train-sample-1000,711,710,711,0.998594,0.992076,0.999752,False,0,711,0.0,0.0,0.005374,False,327,711,0.459916,0.423594,0.496668,False
+(b) val-split,327,304,327,0.929664,0.896672,0.952677,False,3,327,0.009174,0.003125,0.026622,False,153,327,0.46789,0.414494,0.522031,False
+(c) val2-fresh-2000,1459,1348,1459,0.92392,0.909175,0.936439,False,16,1459,0.010966,0.006761,0.01774,False,675,1459,0.462646,0.437192,0.488295,False
