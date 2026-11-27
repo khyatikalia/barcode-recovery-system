@@ -17,8 +17,28 @@ from pathlib import Path
 
 import barcode
 import cv2
+import numpy as np
 import zxingcpp
 from barcode.writer import ImageWriter
+
+
+BARCODE_OPTIONS = {
+    "module_width": 0.4,     # width of the thinnest bar (mm)
+    "module_height": 15.0,   # bar height (mm)
+    "quiet_zone": 6.5,       # white margin left/right
+    "write_text": False,     # no printed digits, so the model must rely on the bars
+    "dpi": 300,
+}
+
+
+def render_ean13(code12: str, size: tuple = (384, 128)) -> np.ndarray:
+    """Render an EAN-13 barcode into a grayscale uint8 image matching dataset specs."""
+    ean = barcode.get("ean13", str(code12)[:12], writer=ImageWriter())
+    pil_img = ean.render(writer_options=BARCODE_OPTIONS).convert("L")
+    arr = np.array(pil_img, dtype=np.uint8)
+    if size is not None:
+        arr = cv2.resize(arr, size, interpolation=cv2.INTER_AREA)
+    return arr
 
 
 def make_barcode(code12: str, out_dir: Path) -> Path:
@@ -27,13 +47,7 @@ def make_barcode(code12: str, out_dir: Path) -> Path:
     # save() adds the .png extension itself and returns the final path
     path = ean.save(
         str(out_dir / ean.get_fullcode()),
-        options={
-            "module_width": 0.4,     # width of the thinnest bar (mm)
-            "module_height": 15.0,   # bar height (mm)
-            "quiet_zone": 6.5,       # white margin left/right
-            "write_text": False,     # no printed digits, so the model must rely on the bars
-            "dpi": 300,
-        },
+        options=BARCODE_OPTIONS,
     )
     return Path(path)
 

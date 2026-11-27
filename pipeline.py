@@ -59,13 +59,87 @@ def decode_recovered(gray):
 
 
 def check_digit_ok(value):
-    """True/False for numeric EAN/UPC-style values, None if not applicable."""
-    if not value.isdigit():
-        return None
+    """True/False for numeric EAN-13 values, None if not applicable."""
+    if not value or not value.isdigit() or len(value) != 13:
+        return False
     try:
         return bool(ean.is_valid(value))
     except Exception:
+        return False
+
+
+# ---------- PIN-to-Sorting-Lane Routing Table ----------
+PIN_ROUTING_TABLE = {
+    "110": ("Lane 1 (North)", "Delhi NCR Hub", "Delhi NCR"),
+    "400": ("Lane 2 (West)", "Mumbai Central Hub", "Maharashtra"),
+    "560": ("Lane 3 (South)", "Bengaluru Sorting Hub", "Karnataka"),
+    "600": ("Lane 4 (South)", "Chennai Sorting Hub", "Tamil Nadu"),
+    "700": ("Lane 5 (East)", "Kolkata Sorting Hub", "West Bengal"),
+    "500": ("Lane 6 (South)", "Hyderabad Sorting Hub", "Telangana"),
+    "411": ("Lane 7 (West)", "Pune Sorting Hub", "Maharashtra"),
+    "380": ("Lane 8 (West)", "Ahmedabad Sorting Hub", "Gujarat"),
+    "302": ("Lane 9 (North)", "Jaipur Sorting Hub", "Rajasthan"),
+    "226": ("Lane 10 (North)", "Lucknow Sorting Hub", "Uttar Pradesh"),
+    "682": ("Lane 11 (South)", "Kochi Sorting Hub", "Kerala"),
+    "452": ("Lane 12 (Central)", "Indore Sorting Hub", "Madhya Pradesh"),
+}
+
+
+def route_by_pincode(pin: str):
+    """Map 6-digit Indian PIN (first 3 digits = sorting district) to sorting lane.
+    
+    Returns None if PIN is missing, not 6 digits, or not in PIN_ROUTING_TABLE.
+    """
+    if pin is None:
         return None
+    pin_str = str(pin).strip()
+    if len(pin_str) != 6 or not pin_str.isdigit():
+        return None
+    prefix = pin_str[:3]
+    if prefix in PIN_ROUTING_TABLE:
+        lane, hub, region = PIN_ROUTING_TABLE[prefix]
+        return {"lane": lane, "hub": hub, "region": region, "pin_prefix": prefix, "pin": pin_str}
+    return None
+
+
+def _apply_db_and_route(out: dict, value: str, db_manifest):
+    """Verify candidate against shipment database/manifest and compute sorting lane."""
+    if db_manifest is None or not value:
+        return
+
+    rec = None
+    if isinstance(db_manifest, dict):
+        rec = db_manifest.get(value)
+    elif hasattr(db_manifest, "execute"):
+        cur = db_manifest.execute("SELECT * FROM shipments WHERE awb = ?", (value,))
+        col_names = [d[0] for d in cur.description] if cur.description else []
+        row = cur.fetchone()
+        if row:
+            rec = dict(zip(col_names, row))
+    elif isinstance(db_manifest, (set, list, tuple)):
+        if value in db_manifest:
+            rec = {"awb": value}
+    elif callable(db_manifest):
+        rec = db_manifest(value)
+
+    if rec is not None:
+        out["db_verified"] = True
+        out["shipment"] = rec
+        pin = rec.get("consignee_pin") or rec.get("pin") or ""
+        route = route_by_pincode(pin)
+        if route is None:
+            out["status"] = "manual_review"
+            out["value"] = None
+            out["route"] = None
+            out["reason"] = "PIN missing or not in routing table"
+        else:
+            out["route"] = route
+            out["reason"] += f" [Database Guard: Verified in manifest. Routed to {route['lane']}]."
+    else:
+        out["db_verified"] = False
+        out["status"] = "manual_review"
+        out["value"] = None
+        out["reason"] += f" [Database Guard Block: Decoded EAN-13 '{value}' is not present in registered manifest; blocked for manual verification]."
 
 
 # ---------- consistency check against the ORIGINAL input ----------
@@ -141,7 +215,7 @@ def recover(model, gray, device="cpu"):
     return (y * 255).clip(0, 255).astype(np.uint8)
 
 
-def run_pipeline(img, model=None, device="cpu"):
+def run_pipeline(img, model=None, device="cpu", db_manifest=None):
     """
     Returns a dict:
       status      'accepted' (safe to auto-route) or 'manual_review'
@@ -150,11 +224,15 @@ def run_pipeline(img, model=None, device="cpu"):
       source      'direct' | 'enhanced' | 'recovered' | None
       score       consistency score (recovered path only)
       reason      short explanation
+      route       routing lane, hub and district mapping (if db_manifest provides PIN)
+      db_verified True/False/None
+      shipment    dict of shipment record if matched in manifest
     """
     gray = to_gray(img)
     out = {"status": "manual_review", "value": None, "candidate": None, "format": None,
            "source": None, "check_digit": None, "score": None, "reason": "",
-           "gray": gray, "enhanced": None, "recovered": None}
+           "gray": gray, "enhanced": None, "recovered": None,
+           "route": None, "db_verified": None, "shipment": None}
 
     r = decode(gray)
     source = "direct"
@@ -163,9 +241,12 @@ def run_pipeline(img, model=None, device="cpu"):
         r, source = decode(out["enhanced"]), "enhanced"
 
     if r is not None:  # read from the real pixels, no AI involved
+        cd = check_digit_ok(r[0])
         out.update(value=r[0], candidate=r[0], format=r[1], source=source,
-                   check_digit=check_digit_ok(r[0]), status="accepted",
-                   reason="Read directly from the image (no AI used).")
+                   check_digit=cd, status="accepted" if cd else "manual_review",
+                   reason="Read directly from the image (no AI used)." if cd else "Check digit invalid.")
+        if out["status"] == "accepted":
+            _apply_db_and_route(out, r[0], db_manifest)
         return out
 
     if model is None:
@@ -193,4 +274,5 @@ def run_pipeline(img, model=None, device="cpu"):
         return out
     out.update(value=value, status="accepted",
                reason=f"Recovered by AI; consistent with the original image (score {score:.2f}).")
+    _apply_db_and_route(out, value, db_manifest)
     return out
